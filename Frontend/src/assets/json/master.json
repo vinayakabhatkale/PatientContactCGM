@@ -1,0 +1,85 @@
+{
+  "education": [
+    {
+      "key": "10th",
+      "value": "10th"
+    },
+    {
+      "key": "12th",
+      "value": "12th"
+    },
+    {
+      "key": "Graduation",
+      "value": "Graduation"
+    },
+    {
+      "key": "PG",
+      "value": "Post Graduation"
+    }
+  ],
+  "gender": [
+    "Male",
+    "Female"
+  ],
+  "bloodgroup": [
+    "O-",
+    "O+",
+    "A-",
+    "A+",
+    "B-",
+    "B+",
+    "AB-",
+    "AB+"
+  ],
+  "designation": [
+    "Associate",
+    "Senior",
+    "Manager",
+    "Worker"
+  ],
+  "country": [
+    "India",
+    "USA"
+  ],
+  "fuels": [
+    "Petrol",
+    "Diesel"
+  ],
+  "isinsured":[
+    {
+      "key": "true",
+      "value": "Yes"
+    },
+    {
+      "key": "false",
+      "value": "No"
+    }
+  ],
+  "literacylevel":[
+    "High",
+    "Medium",
+    "Low"
+  ],
+  "safetyawarness":[
+    {
+      "key": "true",
+      "value": "Yes"
+    },
+    {
+      "key": "false",
+      "value": "No"
+    }
+  ],
+  "mobileawarness":[
+    {
+      "key": "true",
+      "value": "Yes"
+    },
+    {
+      "key": "false",
+      "value": "No"
+    }
+  ]
+
+
+}

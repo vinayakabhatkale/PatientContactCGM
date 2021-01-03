@@ -1,0 +1,76 @@
+@import "src/assets/scss/variables";
+
+:host {
+
+  .btn:focus,
+  .btn:active {
+    box-shadow: 0 0 0 0rem rgba(10, 56, 97, 0.5) !important;
+  }
+
+  .select-control ::ng-deep {
+    .ngx-select__toggle {
+      border-radius: 3px;
+      font-size: 13px;
+      height: auto;
+      line-height: 1.33333;
+      padding: 15px 15px 15px 20px;
+      background: #f6f7f8;
+      color: #323232;
+      border: 0px solid transparent;
+      box-shadow: none;
+    }
+
+    .ngx-select__choices {
+      border-radius: 0;
+      padding: 0;
+    }
+  }
+
+  .pagination-row {
+    text-align: center;
+    display: block;
+  }
+
+  .pagination ::ng-deep {
+    display: block;
+
+    .ngx-pagination {
+      .current {
+        background-color: $theme-color;
+        text-align: center;
+      }
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    /* Edge */
+    color: #ddd;
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ddd;
+  }
+
+  ::placeholder {
+    color: #ddd;
+  }
+  .button {
+    background-color: #3b6b77; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+  }
+  .button2:hover {
+    background-color: #AB3C3C;
+    color: white;
+  }
+  
+}

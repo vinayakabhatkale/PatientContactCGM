@@ -1,0 +1,258 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+Template:  Webmin - Bootstrap 4 & Angular 5 Dashboard Template
+Author: potenzaglobalsolutions.com
+Design and Developed by: potenzaglobalsolutions.com
+
+NOTE: This file includes all admin Template plugins and Shortcodes. If you don't want to use any plugins from below. You can simply remove that line from this file.
+*/
+
+/*
+================================================
+[  Table of contents  ]
+================================================
+
+1. Variables
+2. Mixins
+3. Helpers
+4. Typography
+5. Components
+	- Accordion
+	- Button
+	- Lists
+	- Nice Select
+	- Pricing
+	- Social Icon
+	- Tabs
+	- Owl Carousel
+6. Sidebar
+7. Layout
+8. Responsive
+
+======================================
+[ End table content ]
+======================================
+*/
+
+
+
+/*Global*/
+// @import "~assets/scss/variables";
+
+
+@import "./assets/scss/variables";
+@import "./assets/scss/mixins";
+@import "./assets/scss/helpers";
+@import "./assets/scss/typography";
+
+/*Shortcodes*/
+@import "./assets/scss/components/accordion";
+@import "./assets/scss/components/button";
+@import "./assets/scss/components/list-style";
+@import "./assets/scss/components/pricing";
+@import "./assets/scss/components/social-icon";
+@import "./assets/scss/components/tabs";
+@import "./assets/scss/components/owl-carousel";
+@import "./assets/scss/components/modal";
+
+/*layout*/
+@import "./assets/scss/sidebar";
+@import "./assets/scss/layout";
+@import "./assets/scss/responsive";
+
+/* Fixes */
+
+.card .btn-group .dropdown-menu {
+  top: 0;
+}
+
+.modal:before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.custom-day.range,
+.custom-day:hover,
+.ngb-dp-day .bg-primary {
+  background: #84ba3f !important;
+}
+
+.calendar-main .month-name {
+  margin-top: 0.5rem;
+}
+
+.calendar-main .btn-success {
+  background: #84ba3f;
+  border-color: #84ba3f;
+}
+
+.calendar-main .btn-success:not(:disabled):not(.disabled):active,
+.calendar-main .btn-success:not(:disabled):not(.disabled).active {
+  background-color: #70a52c;
+  border-color: #70a52c;
+}
+
+.side-menu-fixed .ng-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.side-menu-fixed.light-side-menu .ng-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+dx-vector-map rect {
+  stroke: #ffffff;
+}
+
+dx-vector-map.dxm-layer path {
+  fill: rgb(215, 219, 222);
+}
+
+.cal-month-view .cal-cell-top {
+  outline: 0;
+}
+
+.button,
+.btn {
+  border-radius: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.float-right {
+    margin-left: 5px;
+  }
+}
+
+.table td,
+.table th {
+  min-width: 130px;
+}
+
+.table th {
+  text-transform: uppercase;
+}
+
+.text-primary {
+  color: $theme-color !important;
+}
+
+.bg-orange {
+  background-color: rgba(252, 116, 5, 0.5);
+}
+
+.bg-red {
+  background-color: rgba(220, 53, 69, 0.4);
+}
+
+.bg-green {
+  background-color: rgba(40, 167, 69, 0.4);
+}
+
+.bs-datepicker-container {
+  padding: 0;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #f6f7f8;
+}
+
+.theme-green .bs-datepicker-head {
+  background-color: $theme-color;
+}
+
+.theme-green .bs-datepicker-body table td span.selected,
+.theme-green .bs-datepicker-body table td.selected span,
+.theme-green .bs-datepicker-body table td span[class*="select-"]:after,
+.theme-green .bs-datepicker-body table td[class*="select-"] span:after {
+  background-color: $theme-color;
+}
+
+#toasta .toast.toasta-theme-bootstrap {
+  border-radius: 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 13px;
+}
+
+#toasta .toast.toasta-theme-bootstrap.toasta-type-error {
+  background-color: #dc3545 !important;
+}
+
+#toasta .toast.toasta-theme-bootstrap.toasta-type-success {
+  background-color: #28a745 !important;
+}
+
+#toasta .toast.toasta-theme-bootstrap.toasta-type-info {
+  background-color: #007bff !important;
+}
+
+#toasta .toast.toasta-theme-bootstrap.toasta-type-warning {
+  background-color: #ffc107 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+svg.ngx-charts {
+  width: auto !important;
+}
+
+/*----------------------
+    Width per Device
+-----------------------*/
+.error-404-img {
+  opacity: 0.5;
+}
+
+/* Mobile Sizing Combinations */
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .error-404-img {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet Sizing Combinations */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .error-404-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+/* Computer/Desktop Sizing Combinations */
+
+@media only screen and (min-width: 992px) {
+  .error-404-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+/* Large Monitor Sizing Combinations */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  .error-404-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+/* Widescreen Sizing Combinations */
+
+@media only screen and (min-width: 1920px) {
+  .error-404-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}

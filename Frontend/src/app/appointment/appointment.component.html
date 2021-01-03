@@ -1,0 +1,429 @@
+﻿<ng-container>
+  <div class="page-title">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4 class="mb-0"> Patient Dashboard
+        </h4>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb pt-0 float-left float-sm-right ">
+          <!-- <li class="breadcrumb-item"><a routerLink="/master"
+              class="default-color">Dashboard            </a></li> -->
+          <li class="breadcrumb-item active">Patient
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- main body -->
+        <div class="row">
+    <div class="col-xl-12 mb-30">
+      <div class="card card-statistics h-100">
+        <div class="card-body">
+          <ng-container>
+            <div class="d-block d-md-flex justify-content-between">
+              <div class="d-block">
+                <h6 class="card-title border-0 pb-0"></h6>
+              </div>
+              <div class="d-block d-md-flex clearfix sm-mt-20">
+                <div>
+                  <div class="input-group">
+                    <div class="input-group-append">
+                      
+                      <button class="button button2" type="button" (click)="addNewappointment()">
+                        Add Patient
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <div class="d-block d-md-flex justify-content-between">
+            <ng-container>
+              <div class="col-xl-12 mt-10">
+                <h4 class="mb-0"> Search Filter</h4><br>
+                
+                <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()" autocomplete="off" novalidate>
+                  <div class="form-row">
+
+                    <!-- <div class="form-group col-md-3">
+                      <label for="name"> Appointment Name </label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter Appointment Name"
+                        formControlName="name">
+                    </div> -->
+             
+                    <div class="form-group col-md-3">
+                      <label for="searchstring">Patient Name <i
+                          class="text-danger">*</i></label>
+                      <input type="text" class="form-control" id="searchstring"
+                        placeholder="Eneter Patient Name" formControlName="searchstring">
+                    
+                    </div>
+
+             
+                    <!-- <div class="form-group col-md-3">
+                      <label for="meetinglocation"> Meeting Location </label>
+                      <input type="text" class="form-control" id="meetinglocation" placeholder="Enter meeting location"
+                        formControlName="meetinglocation">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="botinstanceid"> Bot Instance id </label>
+                      <input type="text" class="form-control" id="botinstanceid" placeholder="Enter bot instance id"
+                        formControlName="botinstanceid">
+                    </div> -->
+
+                    <!-- <div class="form-group col-md-3 col-sm-6">
+                      <label for="date">Appointment Date </label>
+                      <div class="input-group">
+                        <input class="form-control" placeholder="Select Appointment Date" id="dob" [readonly]="true"
+                          bsDatepicker #dob="bsDatepicker" formControlName="date"
+                          [bsConfig]="{ dateInputFormat: datepickerFormat, showWeekNumbers: false}">
+                        <div class="input-group-append">
+                          <button class="btn btn-secondary" (click)="dob.toggle();" type="button">
+                            <i class="fa fa-calendar"></i>
+                          </button>
+                        </div>
+                      </div>                  
+                    </div> -->
+                  
+                    <!-- <div class="form-group col-md-3 col-sm-6">
+                      <label for="iscancelled">Is Cancelled? </label>
+                      <div class="checkbox checbox-switch switch-success">
+                        <label>
+                          <input type="checkbox" class="form-control" id="iscancelled" name="iscancelled" [(ngModel)]="iscancelled"
+                              formControlName="iscancelled" />
+                          <span></span>
+                        </label>
+                      </div>
+                    </div>
+                 
+                    <div class="form-group col-md-3 col-sm-6">
+                      <label for="iscompleted">Is Completed? </label>
+                      <div class="checkbox checbox-switch switch-success">
+                        <label>
+                          <input type="checkbox" class="form-control" id="iscompleted" name="iscompleted" [(ngModel)]="iscompleted"
+                            formControlName="iscompleted" />
+                          <span></span>
+                        </label>
+                      </div>
+                    </div> -->
+
+                  </div>
+                  <div class="d-block d-md-flex justify-content-between">
+                    <div class="d-block">
+                    </div>
+                    <div class="d-block d-md-flex clearfix sm-mt-20">
+                      <div class="clearfix">
+                        <div class="box">
+                          <button class="button button2 x-small" (click)="onReset()"> CLEAR
+                          </button>
+                          <button (click)="onSearchSubmit()" class="button button2 x-small"> SEARCH
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </ng-container>
+          </div>
+
+
+
+
+
+          <div class="d-block d-md-flex justify-content-between">
+            <ng-container *ngIf="showAddEditAppointmentForm">
+              <div class="col-xl-12 mt-10">
+                <h4 class="mb-0"> Patient Info</h4><br>
+                <form [formGroup]="appointmentform" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+                  <div class="form-row">
+                    
+
+                    <div class="form-group col-md-3">
+                      <label for="firstname">First Name <i
+                          class="text-danger">*</i></label>
+                      <input type="text" class="form-control" id="firstname"
+                        placeholder="Eneter First Name" formControlName="firstname">
+                      <small id="firstnameHelp" class="form-text text-danger"
+                        *ngIf="(f.firstname.invalid && appointmentFormSubmitted) || (f.firstname.invalid && (f.firstname.dirty || f.firstname.touched))">
+                        <ng-container *ngIf="f.firstname.errors.required">
+                          First name is required.
+                        </ng-container>
+                      </small>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="lastname">Last Name <i
+                          class="text-danger">*</i></label>
+                      <input type="text" class="form-control" id="lastname"
+                        placeholder="Eneter Last Name" formControlName="lastname">
+                      <small id="lastnameHelp" class="form-text text-danger"
+                        *ngIf="(f.lastname.invalid && appointmentFormSubmitted) || (f.lastname.invalid && (f.lastname.dirty || f.lastname.touched))">
+                        <ng-container *ngIf="f.lastname.errors.required">
+                          Last Name is required.
+                        </ng-container>
+                      </small>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="email"> Email <i
+                          class="text-danger">*</i></label>
+                      <input type="text" class="form-control" id="email"
+                        placeholder="Enter email" formControlName="email">
+                      <small id="emailHelp" class="form-text text-danger"
+                        *ngIf="(f.email.invalid && appointmentFormSubmitted) || (f.email.invalid && (f.email.dirty || f.email.touched))">
+                        <ng-container *ngIf="f.email.errors.required">
+                          Email is required.
+                        </ng-container>
+                      </small>
+                    </div>
+
+
+
+                    <div class="form-group col-md-3">
+                      <label for="contact"> Contact <i
+                          class="text-danger">*</i></label>
+                      <input type="text" class="form-control" id="contact"
+                        placeholder="Enter contact" formControlName="contact">
+                      <small id="contactHelp" class="form-text text-danger"
+                        *ngIf="(f.contact.invalid && appointmentFormSubmitted) || (f.contact.invalid && (f.contact.dirty || f.contact.touched))">
+                        <ng-container *ngIf="f.contact.errors.required">
+                          Contact is required.
+                        </ng-container>
+                      </small>
+                    </div>
+
+                    <div class="form-group col-md-3 col-sm-6">
+                      <label for="gender">Gender <i class="text-danger">*</i></label>
+                      <select class="form-control" id="gender" formControlName="gender">
+                        <option>Select Gender Type</option>
+                        <ng-container *ngFor="let item of masterdata.gender">
+                          <option [value]="item">{{item}}</option>
+                        </ng-container>
+                      </select>
+                      <small class="form-text text-danger" *ngIf="submitted && f.gender.errors">
+                        <ng-container *ngIf="f.gender.errors.required">
+                          Gender is required.
+                        </ng-container>
+                      </small>
+                    </div> 
+
+                    <div class="form-group col-md-3 col-sm-6">
+                      <label for="bloodgroup">Blood Group <i class="text-danger">*</i></label>
+                      <select class="form-control" id="bloodgroup" formControlName="bloodgroup">
+                        <option>Select Blood Group</option>
+                        <ng-container *ngFor="let item of masterdata.bloodgroup">
+                          <option [value]="item">{{item}}</option>
+                        </ng-container>
+                      </select>
+                      <small class="form-text text-danger" *ngIf="submitted && f.bloodgroup.errors">
+                        <ng-container *ngIf="f.bloodgroup.errors.required">
+                          Blood Group is required.
+                        </ng-container>
+                      </small>
+                    </div> 
+
+                    <div class="form-group col-md-3">
+                      <label for="address">Address <i
+                          class="text-danger">*</i></label>
+                      <input type="text" class="form-control" id="address"
+                        placeholder="Enter Address" formControlName="address">
+                      <small id="addressHelp" class="form-text text-danger"
+                        *ngIf="(f.address.invalid && appointmentFormSubmitted) || (f.address.invalid && (f.address.dirty || f.address.touched))">
+                        <ng-container *ngIf="f.address.errors.required">
+                          Address is required.
+                        </ng-container>
+                      </small>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="date">Appointment Date <i class="text-danger">*</i></label>
+                      <div class="input-group">
+                        <input class="form-control" placeholder="Select appointment date" id="date"
+                          [readonly]="true" bsDatepicker #vd="bsDatepicker" formControlName="date"
+                          [minDate]="minDate"
+                          [bsConfig]="{ dateInputFormat: datepickerFormat, showWeekNumbers: false}">
+                          <div class="input-group-append">
+                          <button class="btn btn-secondary" (click)="vd.toggle();" type="button">
+                            <i class="fa fa-calendar"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <small id="dateHelp" class="form-text text-danger"
+                        *ngIf="(f.date.invalid && appointmentFormSubmitted) || (f.date.invalid && (f.date.dirty || f.date.touched))">
+                        <ng-container *ngIf="f.date.errors.required">
+                          Appointment date is required.
+                        </ng-container>
+                      </small>
+                    </div>
+
+
+
+      
+                    <!-- <div class="form-group col-md-3 col-sm-6">
+                      <label for="iscancelled">Is Cancelled? </label>
+                      <div class="checkbox checbox-switch switch-success">
+                        <label>
+                          <input type="checkbox" class="form-control" id="iscancelled" name="iscancelled" [(ngModel)]="iscancelled"
+                            formControlName="iscancelled" />
+                          <span></span>
+                        </label>
+                      </div>
+                    </div> -->
+      
+    
+
+
+
+
+
+                   </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12"> 
+                        <button type="submit" class="button button2 x-small float-right">SAVE
+                        </button>
+                        <button class="button button2 x-small float-right"
+                          (click)="onReset()">CANCEL </button>
+                    </div> 
+                  </div>
+                </form> 
+              </div>
+            </ng-container>
+          </div>
+          <ng-container>
+            <div class="table-responsive mt-15">
+              <table class="table center-aligned-table mb-0">
+                <thead>
+                  <tr class="text-dark">
+                    <th>Action</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Appointment Date</th>
+                    <th>Address</th>
+  
+                  </tr>
+                </thead>
+                <tbody>
+                   <ng-container *ngFor="let item of appointments | paginate:{
+                      id:'appointment_pagination',
+                      itemsPerPage: 10,
+                      currentPage: appointmentCurrentPage
+                    }"> 
+                                          <tr>
+                      <td class="text-center">
+                        <button class="btn icon text-success" [disabled]="showAddEditAppointmentForm" (click)="editAppointment(item)"><i
+                            class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn icon text-success"  (click)="deleteAppointment(item)"><i
+                          class="fa fa-trash"></i>
+                      </button>
+                      </td>
+                      <td>{{item?.firstname}}</td>
+                      <td>{{item?.lastname}}</td>
+                      <td>{{item?.email}}</td>
+                      <td>{{item?.contact}}</td>
+                      <td>{{item?.gender}}</td>
+                      <td>{{item?.bloodgroup}}</td>
+                      <td>{{item?.date | date:dateFormat}}</td>
+                      <td>{{item?.address}}</td>
+                      
+     
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+            <div class="row pagination-row">
+              <pagination-controls id="appointment_pagination" class="pagination" autoHide="true"
+                previousLabel="Previous" nextLabel="Next"
+                (pageChange)="appointmentCurrentPage=$event">
+              </pagination-controls>
+            </div>
+          </ng-container>
+       <app-model class="modal fade" id="appointmentconfirmation" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="closeModal('appointmentconfirmation','NO')">
+                    <span aria-hidden="true"><i class="ti-close"></i></span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="col-sm-12 col-md-12 mb-20">
+                    <div class="clearfix">
+                      <div class="icon-box">
+                        <h4 class="text-primary">
+                          <i class="fa fa-exclamation-circle highlight-icon" aria-hidden="true"></i>
+                        </h4>
+                      </div>
+                    </div> 
+                  </div>
+                  <h3 class="card-text text-dark text-center mb-15">
+                    Are You Sure?
+                  </h3>
+                  <p class="card-text text-dark text-center">
+                    Do you really want to delete this record? This process can not be undone.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="button gray x-small" data-dismiss="modal"
+                      (click)="closeModal('appointmentconfirmation', 'NO')">CLOSE</button>
+                    <button type="button" class="button black x-small" data-dismiss="modal"
+                      (click)="closeModal('appointmentconfirmation', 'YES')">DELETE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-model> 
+
+          <app-model class="modal fade" id="errormsgbox" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="closeErrorModal('errormsgbox')">
+                    <span aria-hidden="true"><i class="ti-close"></i></span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="col-sm-12 col-md-12 mb-20">
+                    <div class="clearfix">
+                      <div class="icon-box">
+                        <h4 class="text-danger">
+                          <i class="fa fa-times-circle-o highlight-icon" aria-hidden="true"></i>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                  <h4 class="card-text text-dark text-center mb-15">
+                    Invalid data. Please enter valid data.
+                  </h4>
+                </div>
+                <div class="modal-footer">
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="button button2 x-small" data-dismiss="modal"
+                      (click)="closeErrorModal('errormsgbox')"> CLOSE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </app-model>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

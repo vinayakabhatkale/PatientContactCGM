@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GS2020API", "SB2020API\GS2020API.csproj", "{5DF97B09-7A7B-4986-8316-4970B51F45A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor", "Integrators\DataProcessor\DataProcessor.csproj", "{D611B80D-E6E0-402D-8C40-80E98D442A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DF97B09-7A7B-4986-8316-4970B51F45A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF97B09-7A7B-4986-8316-4970B51F45A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF97B09-7A7B-4986-8316-4970B51F45A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF97B09-7A7B-4986-8316-4970B51F45A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D611B80D-E6E0-402D-8C40-80E98D442A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D611B80D-E6E0-402D-8C40-80E98D442A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D611B80D-E6E0-402D-8C40-80E98D442A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D611B80D-E6E0-402D-8C40-80E98D442A08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1191B9CC-3606-460D-BD01-A1BDC5CD0855}
+	EndGlobalSection
+EndGlobal

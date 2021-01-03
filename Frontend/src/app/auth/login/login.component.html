@@ -1,0 +1,185 @@
+﻿<div class="wrapper pb-30">
+
+  <!--================================= preloader =================================-->
+
+  <div id="pre-loader" *ngIf="_commondata.loader.value">
+    <img src="assets/images/pre-loader/loader-01.svg" alt="">
+  </div>
+
+  <!--================================= preloader =================================-->
+
+  <!--================================= login =================================-->
+
+  <section class="height-100vh d-flex align-items-center page-section-ptb login bg-white">
+    <!-- style="background: url(assets/images/login-bg.jpg);"> -->
+    <div class="container">
+      <img src="./../../assets/images/logo.png" class="logo" /><hr class="logo_hr">
+      <div class="row justify-content-center no-gutters vertical-align col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 bg-white">
+          <div class="login-fancy ">
+            <h2>Welcome, Please Sign In!</h2>  <hr class="mt-4 mb-5">
+            <p class="mb-20 text-black mt-10">The job as a surgeon is not just to fix a joint, but to give patients the encouragement and tools they need to speed up their recovery.
+
+             <br> :Kevin R. Stone</p>
+                                      
+            <ul class="list-unstyled pos-bot pb-30">
+              <li class="list-inline-item"><a class="text-black" routerLink=""> Terms of Use</a> </li>
+              <li class="list-inline-item"><a class="text-black" routerLink=""> Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 bg-white">
+        
+            <div class="login-fancy">
+              <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                <h2 class="pl-10">Log In</h2>
+              <hr class="login_hr mt-4 mb-5">
+              <!-- Desktop View -->
+              <div class="section-field mb-20 col-lg-12 d-none d-lg-block">
+                <label class="text_label mb-10 col-lg-3" for="name">Email: </label>
+                <input id="username" name="username" type="text" [(ngModel)]="username" class="col-lg-9 ml-20"
+                  required>
+              </div>
+              <div class="section-field mb-20 col-lg-12 mb-20 d-none d-lg-block">
+                <label class="text_label mb-10 col-lg-3 col-sm-6" for="Password">Password: </label>
+                <input id="password" name="password" type="password" [(ngModel)]="password" class="ml-20 col-lg-9 col-md-6 col-sm-6" 
+                  required>
+              </div>
+
+
+              <!-- Mobile View -->
+              <div class="section-field_mb mb-20 col-sm-6 d-lg-none">
+                <label class="text_label_mb1 mb-10 col-sm-6" for="name">Email: </label>
+                <input id="username" name="username" type="text" [(ngModel)]="username" class="col-sm-6 ml-10"
+                  required>
+              </div>
+              <div class="section-field_mb mb-20 col-sm-6 mb-20 d-lg-none">
+                <label class="text_label_mb2 mb-10 col-sm-6" for="Password">Password: </label>
+                <input id="password" name="password" type="password" [(ngModel)]="password" class="ml-10 col-sm-6" 
+                  required>
+              </div>
+
+
+              <!-- Desktop View
+              <div class="section-field float-right col-lg-9 mt-20 d-none d-lg-block">
+                <div class="remember-checkbox mb-30">
+                  <input type="checkbox"  name="rememberme" id="rememberme"
+                    [(ngModel)]="rememberme" />
+                  <label for="rememberme" class="rememberme"> Remember me</label>
+                  <a src="javascript:void(0);" class="float-right">Forgot Password?</a>
+                </div>
+              </div>
+
+              <div class="section-field col-sm-12 mt-20 d-lg-none col-sm-6">
+                <div class="remember-checkbox mb-30 ml-50">
+                  <input type="checkbox"  name="rememberme" id="rememberme"
+                    [(ngModel)]="rememberme" />
+                  <label for="rememberme" class="col-sm-6"> Remember me</label>
+                  <a src="javascript:void(0);" class="col-sm-6 ml-15">Forgot Password?</a>
+                </div>
+              </div> -->
+
+            <!-- Mobile View -->
+            <button type="submit" class="button d-lg-none col-sm-6">
+              <span>Log in</span>
+              <i class="fa fa-check"></i>
+            </button>
+            
+            <!-- Desktop View -->
+            <button type="submit" class="button button2 float-right " id="button" [disabled]="!loginForm.form.valid">
+                <span>Log in</span>
+                <i class="fa fa-check"></i>
+              </button>
+
+
+
+            </form>
+            </div>
+                
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--================================= login =================================-->
+
+</div>
+
+<!-- ==================FOOTER=================== -->
+<div class="footer col-sm-12 col-lg-12 mt-20">
+  <p>For Any Query Please Whatsapp us @ 
+    <img style="display: inline-block; vertical-align: middle; 
+    height: 20px; width: auto; margin: 0 5px; margin-left: 9px;" 
+    src="./../../../assets/images/whatsapp.png" alt="" width="63" height="64" />
+
+    <a style="color: #5ccacf; font-weight: bold; text-decoration: none;" href="tel:+4915127972877">+4915127972877</a>
+  </p>
+</div>
+
+
+<ngx-spinner name="loginSpinner" [fullScreen]="true" type="ball-fussion" size="medium"></ngx-spinner>
+
+<!-- <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div> -->
+
+
+<!-- <div class="wrapper">
+
+ 
+  <div id="pre-loader" *ngIf="_commondata.loader.value">
+    <img src="assets/images/pre-loader/loader-01.svg" alt="">
+  </div>
+
+ 
+  <section class="height-100vh d-flex align-items-center page-section-ptb login"
+    style="background: url(assets/images/login-bg.jpg);">
+    <div class="container">
+      <div class="row justify-content-center no-gutters vertical-align">
+        <div class="col-lg-4 col-md-6 login-fancy-bg bg" style="background: url(assets/images/login-inner-bg.jpg);">
+          <div class="login-fancy">
+            <h2 class="text-white mb-20">Hello Smart!</h2>
+            <p class="mb-20 text-white">Welcome to the intelligent console to create your BOT in few clicks.</p>
+            <ul class="list-unstyled  pos-bot pb-30">
+              <li class="list-inline-item"><a class="text-white" routerLink=""> Terms of Use</a> </li>
+              <li class="list-inline-item"><a class="text-white" routerLink=""> Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 bg-white">
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="login-fancy pb-40 clearfix">
+              <h3 class="mb-30">Sign In</h3>
+              <div class="section-field mb-20">
+                <label class="mb-10" for="name">User name* </label>
+                <input id="username" name="username" type="text" [(ngModel)]="username" class="web form-control"
+                  placeholder="User name" required>
+              </div>
+              <div class="section-field mb-20">
+                <label class="mb-10" for="Password">Password* </label>
+                <input id="password" name="password" type="password" [(ngModel)]="password"
+                  class="Password form-control" placeholder="Password" required>
+              </div>
+              <div class="section-field">
+                <div class="remember-checkbox mb-30">
+                  <input type="checkbox" class="form-control" name="rememberme" id="rememberme"
+                    [(ngModel)]="rememberme" />
+                  <label for="rememberme"> Remember me</label>
+                  <a src="javascript:void(0);" class="float-right">Forgot Password?</a>
+                </div>
+              </div>
+              <button type="submit" class="button" [disabled]="!loginForm.form.valid">
+                <span>Log in</span>
+                <i class="fa fa-check"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+<ngx-spinner name="loginSpinner" [fullScreen]="true" type="ball-fussion" size="medium"></ngx-spinner>
+
+<div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+-->

@@ -1,0 +1,114 @@
+﻿     <div class="wrapper" [class.slide-menu]="isSlideMenu">
+
+        <!--================================= preloader =================================-->
+      
+        <div id="pre-loader" *ngIf="_commondata.loader.value">
+          <img src="assets/images/pre-loader/loader-01.svg" alt="">
+        </div>
+      
+        <!--================================= preloader =================================-->
+        <!--================================= header start =================================-->
+      
+        <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+          <!-- logo -->
+          <div class="bg-white text-left navbar-brand-wrapper">
+            <a class="navbar-brand brand-logo" href="javascript:void(0);"><img src="assets/images/logo.png" /></a>
+            <a class="navbar-brand brand-logo-mini" href="javascript:void(0);"><img src="assets/images/logo-icon-dark.png"
+                alt="" /></a>
+          </div>
+          <!-- Top bar left -->
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item">
+              <a id="button-toggle" class="button-toggle-nav inline-block ml-20 pull-left" href="javascript:void(0);"
+                (click)="toggleMenu()"><i class="zmdi zmdi-menu ti-align-right"></i></a>
+            </li>
+          </ul>
+          <!-- top bar right -->
+          <ul class="nav navbar-nav ml-auto">
+            <ng-container>
+              <li class="nav-item top-nav-list-item mr-15">
+                <a class="nav-link top-nav top-nav-list-link" [routerLink]="['./dashboard']" routerLinkActive="active">
+                  <span class="right-nav-text">ughikl</span>
+                </a>
+              </li>
+            </ng-container>
+            <li class="nav-item dropdown mr-30">
+              <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="javascript:void(0);" role="button"
+                aria-haspopup="true" aria-expanded="false">
+      
+                <i class="fa fa-user-circle icon-logo"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <!-- <div class="dropdown-header">
+                  <div class="media">
+                    <div class="media-body">
+                      <h5 class="mt-0 mb-0">Ram Jain</h5>
+                      <span>ramjain1988@gmail.com</span>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0);" (click)="logout()"><i
+                    class="text-danger ti-unlock"></i>Logout</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      
+        <!--=================================  header End =================================-->
+        <!--================================= Main content =================================-->
+      
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Left Sidebar -->
+            <div class="side-menu-fixed">
+              <ng-scrollbar>
+                <ul class="nav navbar-nav side-menu">
+                  <!-- menu items -->
+                  <ng-container>
+                    <li>
+                      <a [routerLink]="['/appointment']" routerLinkActive="active">
+                        <i class="active" class="ti-calendar"></i>
+                      <span class="right-nav-text">Appointment</span>
+                      </a>
+      
+                    </li>
+                  </ng-container>
+                </ul>
+              </ng-scrollbar>
+            </div>
+            <!-- Left Sidebar End-->
+      
+            <!--=================================  Main content =================================-->
+      
+            <!--================================= wrapper =================================-->
+            <div class="content-wrapper">
+              <ngx-spinner name="layoutSpinner" [fullScreen]="true" type="ball-fussion" size="medium"></ngx-spinner>
+              <router-outlet></router-outlet>
+      
+              <!--=================================  footer start =================================-->
+              <footer class="bg-white p-4">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="text-center text-md-left">
+                      <p class="mb-0"> &copy; Copyright <span id="copyright">
+                          <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                        </span> <a href="javascript:void(0);"> 2020 </a> All Rights Reserved </p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="text-center text-md-right">
+                      <li class="list-inline-item"><a href="javascript:void(0);">Terms & Conditions </a> </li>
+                      <li class="list-inline-item"><a href="javascript:void(0);">API Use Policy </a> </li>
+                      <li class="list-inline-item"><a href="javascript:void(0);">Privacy Policy </a> </li>
+                    </ul>
+                  </div>
+                </div>
+              </footer>
+              <!--=================================  footer end =================================-->
+            </div>
+            <!-- main content wrapper end-->
+          </div>
+        </div>
+      </div>
+      
